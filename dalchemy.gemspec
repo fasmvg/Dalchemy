@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "Dalchemy"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.0"
   spec.summary       = "Create GUIs with Ruby the easy way"
   spec.description   = "Dalchemy is a Ruby library for creating fast, elegant and functional graphical interfaces using GTK3."
   spec.authors       = ["mvghasty"]

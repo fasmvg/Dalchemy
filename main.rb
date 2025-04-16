@@ -1,14 +1,18 @@
 require_relative "lib/dalchemy"
 
 Dalchemy::App.run do
-  Dalchemy::Window.new(title: "Hello GUI", width: 400, height: 300) do
-    click_count = 0
-    label "Welcome!", x: 30, y: 30 
-    click_label = label "Clicks: 0", x: 30, y: 150
-    button "Click", x: 30, y: 80 do
-      click_count += 1
-      puts "You click #{click_count} times on the button"
-      click_label.set_text("Clicks: #{click_count}")
+  Dalchemy::Window.new(title: "Test", width: 400, height: 200) do
+    counter = 0
+    label_ref = nil
+
+    grid = Dalchemy::Grid.new.build do
+      label_ref = add_label("Clicks: 0", 0, 0)
+      add_button("Click!", 1, 0) do
+        counter += 1
+        label_ref.set_text("Clicks: #{counter}")
+      end
     end
+
+    add(grid.widget)
   end
 end

@@ -1,9 +1,13 @@
 module Dalchemy
   class Button
-    def initialize(parent, text, x, y, &block)
-      button = Gtk::Button.new(label: text)
-      button.signal_connect("clicked") { block.call if block }
-      parent.put(button, x, y)
+    attr_reader :widget
+
+    def initialize(label)
+      @widget = Gtk::Button.new(label: label)
+    end
+
+    def on_click(&block)
+      @widget.signal_connect("clicked", &block)
     end
   end
 end

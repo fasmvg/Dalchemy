@@ -21,5 +21,9 @@ module Dalchemy
     def button(text, x:, y:, &block)
       Dalchemy::Button.new(@fixed, text, x, y, &block)
     end
+
+    def add(widget)
+      @fixed.put(widget, 0, 0)
+    end
   end
 end
